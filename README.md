@@ -1,4 +1,10 @@
-# vinext-starter
+# ANJU Care Platform
+
+An English-language interactive prototype for care-home resident profiles, meal planning, kitchen production and purchasing. See [IMPLEMENTATION.md](IMPLEMENTATION.md) for implemented features and limitations, and [references/architecture.md](references/architecture.md) for the intended production design.
+
+Run `npm run check:english` to check all tracked text files and filenames for Chinese characters, including Unicode escapes. Source, sample data, export labels and documentation use English. User-entered content and browser/operating-system controls follow their own input and locale settings.
+
+## Framework Starter
 
 A clean full-stack starter running on [vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and Drizzle support.
 

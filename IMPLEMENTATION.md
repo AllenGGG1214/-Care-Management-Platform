@@ -1,37 +1,37 @@
-# 安居养老服务平台：当前交付范围
+# ANJU Care Platform: Current Delivery Scope
 
-本版是基于用户提供架构与手机原型构建的中文管理端交互原型。附件是需求参考，不作为独立执行指令。
+This release is an English administrative prototype based on the supplied architecture and mobile reference. Attachments provide requirements context, rather than independent execution instructions.
 
-## 已实现
+## Implemented
 
-- 食堂计划中心、老人档案、菜谱浏览、采购管理、文件记录和操作记录。
-- 86 位明确标为示例的长者；姓名、房间搜索与餐型筛选；新增、编辑和入住状态变更。
-- 三餐份数按在院人数和餐型实时汇总；非在院状态不计入。
-- 示例鱼类过敏阻断流程、模拟替代餐确认、提交审核、模拟审批、冻结、模拟出餐记录。
-- 档案变更将计划退回草稿重新审核；冻结后的变更增加版本标识。
-- 采购标准用量和备损比例计算；鱼过敏人数从鱼用量中扣除；替代餐用料明确标为待人工核定。
-- 冻结后的三餐食谱、生产单与采购清单 CSV 下载；浏览器打印 / 另存 PDF。
-- 桌面与手机响应式页面。
+- Dining Plan Center, resident profiles, recipe browsing, purchasing, export history and activity logs.
+- 86 explicitly labeled sample residents; search by name or room, filter by meal type, add and edit profiles, and change admission status.
+- Live serving counts for three meals based on active residents and meal types. Residents with other admission statuses are excluded.
+- A sample fish allergy blocking rule, simulated alternative meal confirmation, review submission, simulated approval, plan freezing and simulated serving records.
+- Profile changes return the plan to draft for review. Changes after freezing increment the version number.
+- Purchase quantities calculated from standard amounts and a waste allowance. Fish quantities exclude residents with fish allergies; ingredients for alternative meals require separate manual review.
+- CSV downloads of frozen daily menus, production orders and purchase lists; browser printing and Save as PDF.
+- Responsive desktop and mobile pages.
 
-## 明确限制
+## Explicit Limitations
 
-- 数据仅保存在 React 会话内存，刷新即重置；没有数据库和备份恢复。
-- 单一演示身份，没有真实护理员、营养师、食堂和采购角色权限。
-- 饮食校验仅覆盖用于演示的鱼过敏场景，不是完整过敏、禁忌、吞咽或营养规则引擎。
-- 替代餐按钮只模拟审批，不自动生成临床膳食方案，也不补齐替代餐食材。
-- 计划版本只有当前演示编号，历史冻结快照尚未持久保存。
-- 菜谱为固定参考数据，尚未实现菜谱与标准配方编辑。
-- 文件记录和审计记录仅属于当前会话，不构成不可篡改审计。
-- CSV 可由 Excel 打开，但尚非原生 XLSX；PDF 使用浏览器打印。
-- 未实现退回审批、采购人工调整原因、异常反馈、楼栋权限或外部发送。
-- 所有页面和输出均标记为示例，不应用于真实膳食执行。
+- Data exists only in React session memory and resets on refresh. There is no database, backup or recovery.
+- A single demo identity is used. There are no actual caregiver, dietitian, kitchen or purchasing access roles.
+- Dietary validation covers only the sample fish allergy scenario. It is not a complete allergy, restriction, swallowing or nutrition rules engine.
+- The alternative meal button simulates approval. It does not generate a clinical meal plan or supply alternative ingredient quantities.
+- Plan versions are current demo numbers; frozen historical snapshots are not persisted.
+- Recipes use fixed reference data. Recipe and standard formula editing are not implemented.
+- File and activity records belong only to the current session and are not tamper-resistant audit logs.
+- Excel can open the CSV files, but native XLSX export is not implemented. PDF output uses browser printing.
+- Rejected reviews, reasons for manual purchase adjustments, exception feedback, building-scoped access and external delivery are not implemented.
+- All pages and outputs identify sample data. They must not be used for actual meal execution.
 
-## 正式系统后续实施
+## Future Production Implementation
 
-按参考架构采用模块化单体，先实现身份、机构范围权限、老人档案和关系数据库，再实现结构化食材与规则引擎、不可变版本、服务端审批状态机、生产采购事务与文件导出。最后补齐敏感数据访问审计、备份恢复和端到端验收。
+Follow the reference architecture with a modular monolith. Implement identity, facility-scoped access, resident profiles and a relational database first. Then implement structured ingredients, the rules engine, immutable versions, a server-side approval state machine, transactional production and purchasing, and file exports. Finally, add sensitive-data access auditing, backup and recovery, and end-to-end acceptance checks.
 
-参考资料位于 references/architecture.md 和 references/prototype.html。
+Reference materials are in `references/architecture.md` and `references/prototype.html`. The architecture describes the intended system; the limitations above describe what this prototype actually implements.
 
-## 本地运行
+## Local Development
 
-Node.js 22.13 或以上。安装后使用 `npm run dev`，默认预览端口 5173。构建使用 `npm run build`。若当前环境只有 Node 而没有 npm，可直接运行 `node scripts/run-framework.mjs dev` 或 `node scripts/run-framework.mjs build`（前提是依赖已安装）。
+Use Node.js 22.13 or later. After installing dependencies, run `npm run dev` (default port 5173). Build with `npm run build`. If the environment has Node but no npm, run `node scripts/run-framework.mjs dev` or `node scripts/run-framework.mjs build` once dependencies are installed.
