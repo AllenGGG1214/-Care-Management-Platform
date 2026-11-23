@@ -1,8 +1,10 @@
+> Application commands and source paths below are relative to `web/`, unless stated otherwise.
+
 # Runtime and hosting reference
 
 [Home](../README.md) · [Development](development.md) · [Repository map](repository-map.md)
 
-These inherited framework instructions describe optional infrastructure. For current dashboard behavior, see [Delivery scope](../IMPLEMENTATION.md). Complete [hosting configuration](development.md#hosting-configuration) before running a clean checkout.
+These inherited framework instructions describe optional infrastructure. For current dashboard behavior, see [Delivery scope](implementation.md). Complete [hosting configuration](development.md#hosting-configuration) before running a clean checkout.
 
 
 A clean full-stack starter running on [vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and Drizzle support.

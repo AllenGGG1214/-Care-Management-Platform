@@ -45,3 +45,15 @@ next-env.d.ts
 /outputs/
 /work/
 *.tsbuildinfo
+
+# Application-local dependencies, generated output and hosting identity
+/web/node_modules/
+/web/.pnp/
+/web/.next/
+/web/.vinext/
+/web/out/
+/web/coverage/
+/web/dist/
+/web/.wrangler/
+/web/.sites-runtime/
+/web/.openai/hosting.json

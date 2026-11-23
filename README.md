@@ -10,9 +10,9 @@ An English-language care-home operations prototype built with React, TypeScript,
 | --- | --- |
 | Run the demo | [Development guide](docs/development.md) |
 | Find the right source file | [Repository map](docs/repository-map.md) |
-| Understand delivered features and limits | [Delivery scope](IMPLEMENTATION.md) |
-| Understand the intended production system | [Architecture reference](references/architecture.md) |
-| Inspect the original visual reference | [HTML prototype](references/prototype.html) |
+| Understand delivered features and limits | [Delivery scope](docs/implementation.md) |
+| Understand the intended production system | [Architecture reference](docs/references/architecture.md) |
+| Inspect the original visual reference | [HTML prototype](docs/references/prototype.html) |
 | Configure hosting, authentication or optional D1 | [Runtime reference](docs/runtime.md) |
 
 ## Quick start
@@ -38,27 +38,22 @@ Open the loopback URL printed by the server, normally port 5173.
 4. Review production and purchasing quantities.
 5. Download CSV files or print the page.
 
-Profile changes return the plan to draft. Approvals and dietary checks are demonstrations; see [the full limitations](IMPLEMENTATION.md#explicit-limitations).
+Profile changes return the plan to draft. Approvals and dietary checks are demonstrations; see [the full limitations](docs/implementation.md#explicit-limitations).
 
 ## Repository at a glance
 
 ```text
-app/             Dashboard, styling, layout and optional auth helpers
-components/ui/   Shared UI primitives
-hooks/           Shared React hooks
-lib/             Shared utilities
-db/              Optional D1/Drizzle scaffolding
-drizzle/         Migration metadata
-examples/d1/     Optional database example outside active app routes
-docs/            Development, navigation and runtime documentation
-references/      Requirements and visual references
-scripts/         Install, execution-profile and validation tools
-build/           Source for the Sites Vite plugin
-public/          Static assets
-vendor/          Vendored stylesheet and license
+web/             Complete application: source, assets, dependencies and tooling
+docs/            Guides, delivery scope and original references
+.github/         Automated repository checks
+README.md        Project entry point
+package.json     Root command shortcuts (application dependencies live in web/)
+.gitignore       Local files excluded from Git
 ```
 
-The dashboard sections currently live together in `app/page.tsx`. Start there for business behavior and in `app/globals.css` for appearance. [The repository map](docs/repository-map.md) explains each area and the next refactoring steps.
+The dashboard sections currently live together in `web/app/page.tsx`. Start there for business behavior and in `web/app/globals.css` for appearance. [The repository map](docs/repository-map.md) explains each area and the next refactoring steps.
+
+All application configuration stays together inside `web/`. Root npm commands forward to that directory; use `npm run install:ci` for the locked application install, rather than `npm ci` at the repository root. Configure deployment services to use **web** as their project/root directory.
 
 ## Checks
 

@@ -8,7 +8,7 @@ Use Node.js >=22.13.0 with npm. Windows, macOS and Linux use the portable runtim
 
 ## Hosting configuration
 
-The current main branch removed `.openai/hosting.json`, but `vite.config.ts` still imports it. Before development or builds, create that directory and file with:
+The application imports `web/.openai/hosting.json` from `web/vite.config.ts`. This local configuration is ignored by Git. Before development or builds, create that directory and file with:
 
 ```json
 {
@@ -21,7 +21,7 @@ Both bindings can remain disabled for the session-only dashboard. This does not 
 
 ## Install and run
 
-From the repository root:
+Application source, dependencies and framework configuration live in `web/`. Root npm commands forward to this application directory. From the repository root:
 
 ```sh
 npm run install:ci
@@ -41,6 +41,8 @@ Open the printed loopback URL, normally `http://127.0.0.1:5173`. Use `npm run de
 | `npm run build` | Build the Worker artifact |
 | `npm start` | Preview an existing build locally; does not deploy |
 | `npm run db:generate` | Generate optional migrations after schema changes |
+
+Use `npm run install:ci` for the locked install. The root package contains shortcuts only; the application lockfile is `web/package-lock.json`. You can also run application commands after `cd web`. Configure hosting/build services with `web` as the root directory. Runtime profiles and generated output now live under `web/` as well.
 
 ## Manual smoke check
 
@@ -62,4 +64,4 @@ Open the printed loopback URL, normally `http://127.0.0.1:5173`. Use `npm run de
 | Built preview cannot find Wrangler configuration | Run the build first |
 | Port in use | Stop the previous server or select another port |
 
-Generated `node_modules/`, `dist/`, `.next/`, `.vinext/`, `.wrangler/` and `.sites-runtime/` are local artifacts. `build/` contains maintained plugin source and must be retained. Read the [runtime reference](runtime.md) for managed execution profiles, optional auth and D1 migrations.
+The following paths are relative to `web/`. Generated `node_modules/`, `dist/`, `.next/`, `.vinext/`, `.wrangler/` and `.sites-runtime/` are local artifacts. `build/` contains maintained plugin source and must be retained. Read the [runtime reference](runtime.md) for managed execution profiles, optional auth and D1 migrations.

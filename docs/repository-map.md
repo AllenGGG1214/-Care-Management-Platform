@@ -1,6 +1,12 @@
 # Repository map
 
-[Home](../README.md) · [Development](development.md) · [Delivery scope](../IMPLEMENTATION.md)
+[Home](../README.md) · [Development](development.md) · [Delivery scope](implementation.md)
+
+## Root layout
+
+Only three top-level folders are used: `web/` for the complete application, `docs/` for documentation and references, and `.github/` for repository automation. Root `package.json` forwards familiar npm commands into `web/`. Framework configuration and the application lockfile stay inside `web/`.
+
+All application paths in the tables below are relative to `web/`; `.github/` remains relative to the repository root.
 
 ## Business code
 
@@ -27,7 +33,7 @@ Resident Profiles, Dining Plans and Purchasing are conditional views inside `app
 | `examples/d1/` | Example API and schema | Reference code outside active routes |
 | `cloudflare-env.d.ts` | Worker binding types | Type declarations |
 
-These files do not mean the dashboard has an integrated backend. Read [delivery scope](../IMPLEMENTATION.md) for actual behavior.
+These files do not mean the dashboard has an integrated backend. Read [delivery scope](implementation.md) for actual behavior.
 
 ## Tooling
 
@@ -53,9 +59,9 @@ These files do not mean the dashboard has an integrated backend. Read [delivery 
 
 - [Development](development.md): setup, commands and smoke checks.
 - [Runtime reference](runtime.md): inherited hosting and runtime instructions.
-- [Delivery scope](../IMPLEMENTATION.md): implemented features and explicit limitations.
-- [Architecture](../references/architecture.md): intended production system.
-- [HTML prototype](../references/prototype.html): visual reference.
+- [Delivery scope](implementation.md): implemented features and explicit limitations.
+- [Architecture](references/architecture.md): intended production system.
+- [HTML prototype](references/prototype.html): visual reference.
 
 Read delivery scope before architecture, which includes capabilities the demo has not implemented. Generated dependency and runtime directories are not application source.
 
@@ -69,4 +75,4 @@ These are future steps, not changes included in this documentation cleanup.
 4. Introduce persistence and server-side workflow rules with explicit schema and migration review.
 5. Review starter components and examples for removal only after checking imports and requirements.
 
-Keep framework configuration at the root and preserve build plugin source and licenses.
+Keep framework configuration at the application root (`web/`) and preserve build plugin source and licenses.

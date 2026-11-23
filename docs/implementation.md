@@ -1,3 +1,5 @@
+> Application commands and source paths below are relative to `web/`, unless stated otherwise.
+
 # ANJU Care Platform: Current Delivery Scope
 
 This release is an English administrative prototype based on the supplied architecture and mobile reference. Attachments provide requirements context, rather than independent execution instructions.
